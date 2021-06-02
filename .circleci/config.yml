@@ -7,6 +7,7 @@ jobs:
     docker: 
       - image: cirrusci/flutter
     steps:
+      - checkout
       - run: flutter build ios --debug
   test-frontend:
     docker:
