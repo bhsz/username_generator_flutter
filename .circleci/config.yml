@@ -9,6 +9,12 @@ jobs:
     steps:
       - checkout
       - run: flutter build apk --debug
+  build-ios:
+    macos:
+      xcode: 12.4.0
+    steps:
+      - checkout
+      - run: flutter build ios --debug
   test-frontend:
     docker:
       - image: cirrusci/flutter
@@ -18,7 +24,4 @@ jobs:
 workflows:
   build-frontend:
     jobs:
-      - build-frontend
-  test-frontend:
-    jobs:
-      - test-frontend
+      - build-ios
